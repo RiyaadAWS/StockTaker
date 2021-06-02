@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StockTaker</string>
+    <string name="dbupdate">DbUpdate</string>
+</resources>
