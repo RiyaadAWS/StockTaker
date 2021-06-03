@@ -58,7 +58,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_bg"
             android:padding="15dp"
-            android:text="View Out of Stock"
+            android:text="Out of Stock"
             android:typeface="monospace" />
 
         <Button
@@ -71,7 +71,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_bg"
             android:padding="15dp"
-            android:text="View instock"
+            android:text="In stock"
             android:typeface="monospace" />
 
         <Button

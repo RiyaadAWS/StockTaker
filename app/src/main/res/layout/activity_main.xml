@@ -58,7 +58,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_bg"
             android:padding="15dp"
-            android:text="View Database"
+            android:text="View"
             android:typeface="monospace" />
 
         <Button
