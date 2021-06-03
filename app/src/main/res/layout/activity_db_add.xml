@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/login">
+    android:background="@color/teal_700">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/login"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
         android:orientation="vertical">
 
         <ImageView
@@ -121,7 +121,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/quantity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -151,4 +153,4 @@
             android:typeface="monospace" />
 
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/login">
+    android:background="@color/teal_700">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/login"
+    android:background="@color/teal_700"
     >
 
     <ImageView
@@ -113,11 +113,11 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="0dp"
         android:background="@drawable/btn_bg"
         android:padding="15dp"
         android:text="search by quantity"
         android:typeface="monospace" />
 
 </LinearLayout>
-</RelativeLayout>
+</ScrollView>

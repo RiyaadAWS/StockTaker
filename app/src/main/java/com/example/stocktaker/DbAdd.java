@@ -10,12 +10,17 @@ import android.widget.Toast;
 
 import com.example.stocktaker.utility.DatabaseHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DbAdd extends AppCompatActivity {
 
     DatabaseHelper myDB;
     EditText name, description, category, quantity;
     Button btnadd, clear, back;
-
+    Date date = new Date();
+    String datepattern = "dd-MM-yyy";
+    SimpleDateFormat datePatternFormat = new SimpleDateFormat(datepattern);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,6 @@ public class DbAdd extends AppCompatActivity {
 
         AddData();
         clear();
-
-
     }
 
     //add data to the database
@@ -43,13 +46,15 @@ public class DbAdd extends AppCompatActivity {
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean inserted = myDB.insertData(name.getText().toString(), description.getText().toString(), category.getText().toString(),
-                        quantity.getText().toString());
 
                 if (name.getText().toString().length()>0 & description.getText().toString().length()>0 &
                         category.getText().toString().length()>0 & quantity.getText().toString().length()>0){
 
+                    boolean inserted = myDB.insertData(name.getText().toString(), description.getText().toString(), category.getText().toString(),
+                    quantity.getText().toString());
+
                     if (inserted == true)
+
                         Toast.makeText(DbAdd.this, "Data inserted", Toast.LENGTH_LONG).show();
 
                     else
@@ -57,7 +62,6 @@ public class DbAdd extends AppCompatActivity {
 
                 }
                 else {Toast.makeText(DbAdd.this, "All fields require values", Toast.LENGTH_LONG).show();}
-
             }
         });
 

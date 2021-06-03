@@ -1,7 +1,9 @@
 package com.example.stocktaker;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,22 +38,40 @@ public class DbUpdate extends AppCompatActivity {
         clear();
     }
 
-    //add data to the database
+    // Update data to the database - this method reads the updateDB method in the DatabaseHelper class which takes the parameters from the
+    // EditText fields which updates there corresponding rows in the database
         public void UpdateDBData(){
             btnUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean isUpdated = myDB.updateDB(id.getText().toString(),name.getText().toString(),
-                            description.getText().toString(),category.getText().toString(),quantity.getText().toString());
 
+                    AlertDialog.Builder myAlert = new AlertDialog.Builder(DbUpdate.this);
+                    myAlert.setTitle("Confirm");
+                    myAlert.setMessage("Are you sure you want to update this record?").setCancelable(true);
                     if (name.getText().toString().length()>0 & description.getText().toString().length()>0 &
                             category.getText().toString().length()>0 & quantity.getText().toString().length()>0
                             & id.getText().toString().length()>0){
+                        myAlert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                        if(isUpdated == true)
-                            Toast.makeText(DbUpdate.this, "Data updated", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(DbUpdate.this, "Data not updated", Toast.LENGTH_LONG).show();
+                                boolean isUpdated = myDB.updateDB(id.getText().toString(),name.getText().toString(),
+                                        description.getText().toString(),category.getText().toString(),quantity.getText().toString());
+
+                                if(isUpdated == true)
+                                    Toast.makeText(DbUpdate.this, "Record updated", Toast.LENGTH_LONG).show();
+                                else
+                                    Toast.makeText(DbUpdate.this, "Record not updated", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        myAlert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(DbUpdate.this, "Record not updated", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        myAlert.show();
                     }
                     else {Toast.makeText(DbUpdate.this, "All fields require values", Toast.LENGTH_LONG).show();}
                 }

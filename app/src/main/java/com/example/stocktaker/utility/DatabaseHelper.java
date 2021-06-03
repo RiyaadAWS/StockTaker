@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     EditText name;
 
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -117,4 +118,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             Cursor res = db.rawQuery(" DROP TABLE " + TABLE_NAME ,null);
             return res;
         }
+
+        public Cursor printPDF(){
+            SQLiteDatabase db = this.getWritableDatabase();
+            String[] columns= {"ID", "Name", "Description", "Category", "Quantity"};
+            Cursor res = db.query(TABLE_NAME, columns, null,null,null,null, null );
+            return res;
+        }
+
     }
